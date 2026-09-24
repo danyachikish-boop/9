@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign In</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background-color: #e4f2f8;
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      max-width: 350px;
+      width: 100%;
+      background: #F8F9FD;
+      background: linear-gradient(0deg, rgb(255, 255, 255) 0%, rgb(244, 247, 251) 100%);
+      border-radius: 40px;
+      padding: 25px 35px;
+      border: 5px solid rgb(255, 255, 255);
+      box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 30px 30px -20px;
+      margin: 20px;
+      box-sizing: border-box;
+      position: relative;
+    }
+
+    .heading {
+      text-align: center;
+      font-weight: 900;
+      font-size: 30px;
+      color: rgb(16, 137, 211);
+    }
+
+    .form {
+      margin-top: 20px;
+    }
+
+    .form .input {
+      width: 100%;
+      background: white;
+      border: none;
+      padding: 15px 20px;
+      border-radius: 20px;
+      margin-top: 15px;
+      box-shadow: #cff0ff 0px 10px 10px -5px;
+      border-inline: 2px solid transparent;
+      box-sizing: border-box;
+    }
+
+    .form .input::placeholder {
+      color: rgb(170, 170, 170);
+    }
+
+    .form .input:focus {
+      outline: none;
+      border-inline: 2px solid #12B1D1;
+    }
+
+    .form .forgot-password {
+      display: block;
+      margin-top: 10px;
+      margin-left: 10px;
+    }
+
+    .form .forgot-password a {
+      font-size: 11px;
+      color: #0099ff;
+      text-decoration: none;
+    }
+
+    .form .login-button {
+      display: block;
+      width: 100%;
+      font-weight: bold;
+      background: linear-gradient(45deg, rgb(16, 137, 211) 0%, rgb(18, 177, 209) 100%);
+      color: white;
+      padding-block: 15px;
+      margin: 20px auto;
+      border-radius: 20px;
+      box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 20px 10px -15px;
+      border: none;
+      transition: all 0.2s ease-in-out;
+      cursor: pointer;
+    }
+
+    .form .login-button:hover {
+      transform: scale(1.03);
+    }
+
+    .agreement {
+      display: block;
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .agreement a {
+      text-decoration: none;
+      color: #0099ff;
+      font-size: 9px;
+    }
+
+    /* Спиннер загрузки */
+    .loader-overlay {
+      display: none; /* Скрыт по умолчанию */
+      justify-content: center;
+      align-items: center;
+      min-height: 200px;
+    }
+
+    .spinner {
+      font-size: 32px;
+      position: relative;
+      display: inline-block;
+      width: 1em;
+      height: 1em;
+    }
+
+    .spinner .spinner-blade {
+      position: absolute;
+      left: 0.4629em;
+      bottom: 0;
+      width: 0.074em;
+      height: 0.2777em;
+      border-radius: 0.0555em;
+      background-color: transparent;
+      transform-origin: center -0.2222em;
+      animation: spinner-fade9234 1s infinite linear;
+    }
+
+    .spinner .spinner-blade:nth-child(1) { animation-delay: 0s; transform: rotate(0deg); }
+    .spinner .spinner-blade:nth-child(2) { animation-delay: 0.083s; transform: rotate(30deg); }
+    .spinner .spinner-blade:nth-child(3) { animation-delay: 0.166s; transform: rotate(60deg); }
+    .spinner .spinner-blade:nth-child(4) { animation-delay: 0.249s; transform: rotate(90deg); }
+    .spinner .spinner-blade:nth-child(5) { animation-delay: 0.332s; transform: rotate(120deg); }
+    .spinner .spinner-blade:nth-child(6) { animation-delay: 0.415s; transform: rotate(150deg); }
+    .spinner .spinner-blade:nth-child(7) { animation-delay: 0.498s; transform: rotate(180deg); }
+    .spinner .spinner-blade:nth-child(8) { animation-delay: 0.581s; transform: rotate(210deg); }
+    .spinner .spinner-blade:nth-child(9) { animation-delay: 0.664s; transform: rotate(240deg); }
+    .spinner .spinner-blade:nth-child(10) { animation-delay: 0.747s; transform: rotate(270deg); }
+    .spinner .spinner-blade:nth-child(11) { animation-delay: 0.83s; transform: rotate(300deg); }
+    .spinner .spinner-blade:nth-child(12) { animation-delay: 0.913s; transform: rotate(330deg); }
+
+    @keyframes spinner-fade9234 {
+      0% { background-color: #1089d3; }
+      100% { background-color: transparent; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- Блок формы -->
+    <div id="formContainer">
+      <div class="heading">Sign In</div>
+      <form id="loginForm" class="form">
+        <input required class="input" type="email" name="email" id="email" placeholder="E-mail">
+        <input required class="input" type="password" name="password" id="password" placeholder="Password">
+        <span class="forgot-password"><a href="#">Forgot Password ?</a></span>
+        <input class="login-button" type="submit" value="Sign In">
+      </form>
+      <span class="agreement"><a href="#">Learn user licence agreement</a></span>
+    </div>
+
+    <!-- Блок спиннера -->
+    <div id="loaderOverlay" class="loader-overlay">
+      <div class="spinner">
+        <div class="spinner-blade"></div>
+        <div class="spinner-blade"></div>
+        <div class="spinner-blade"></div>
+        <div class="spinner-blade"></div>
+        <div class="spinner-blade"></div>
+        <div class="spinner-blade"></div>
+        <div class="spinner-blade"></div>
+        <div class="spinner-blade"></div>
+        <div class="spinner-blade"></div>
+        <div class="spinner-blade"></div>
+        <div class="spinner-blade"></div>
+        <div class="spinner-blade"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+      e.preventDefault(); // Отменяем отправку формы по умолчанию
+      
+      // Прячем форму и показываем лоадер
+      document.getElementById('formContainer').style.display = 'none';
+      document.getElementById('loaderOverlay').style.display = 'flex';
+    });
+  </script>
+
+</body>
+</html>

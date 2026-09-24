@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User License Agreement</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background-color: #e4f2f8;
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      max-width: 420px;
+      width: 100%;
+      background: #F8F9FD;
+      background: linear-gradient(0deg, rgb(255, 255, 255) 0%, rgb(244, 247, 251) 100%);
+      border-radius: 40px;
+      padding: 30px 35px;
+      border: 5px solid rgb(255, 255, 255);
+      box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 30px 30px -20px;
+      margin: 20px;
+      box-sizing: border-box;
+    }
+
+    .heading {
+      text-align: center;
+      font-weight: 900;
+      font-size: 24px;
+      color: rgb(16, 137, 211);
+      margin-bottom: 20px;
+    }
+
+    .content-box {
+      max-height: 250px;
+      overflow-y: auto;
+      padding-right: 10px;
+      font-size: 12px;
+      color: #555;
+      line-height: 1.6;
+    }
+
+    .content-box::-webkit-scrollbar {
+      width: 6px;
+    }
+    .content-box::-webkit-scrollbar-thumb {
+      background: #1089d3;
+      border-radius: 10px;
+    }
+    .content-box::-webkit-scrollbar-track {
+      background: #e4f2f8;
+      border-radius: 10px;
+    }
+
+    .content-box h3 {
+      font-size: 13px;
+      color: rgb(16, 137, 211);
+      margin-top: 15px;
+      margin-bottom: 5px;
+    }
+
+    .back-button {
+      display: block;
+      width: 100%;
+      text-align: center;
+      font-weight: bold;
+      background: linear-gradient(45deg, rgb(16, 137, 211) 0%, rgb(18, 177, 209) 100%);
+      color: white;
+      padding: 14px 0;
+      margin-top: 25px;
+      border-radius: 20px;
+      box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 20px 10px -15px;
+      text-decoration: none;
+      transition: all 0.2s ease-in-out;
+      box-sizing: border-box;
+    }
+
+    .back-button:hover {
+      transform: scale(1.03);
+      box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 23px 10px -20px;
+    }
+
+    .back-button:active {
+      transform: scale(0.95);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="heading">User Agreement</div>
+
+    <div class="content-box">
+      <p>Welcome to our application. By using our service, you agree to comply with and be bound by the following terms and conditions of use.</p>
+
+      <h3>1. Acceptance of Terms</h3>
+      <p>By accessing or using the app, you confirm that you have read, understood, and agreed to be bound by these User Licence Terms.</p>
+
+      <h3>2. User Account</h3>
+      <p>You are responsible for maintaining the confidentiality of your account credentials and for all activities that occur under your account.</p>
+
+      <h3>3. Privacy & Data Protection</h3>
+      <p>We respect your privacy. All personal data collected through this application will be handled securely and in accordance with standard data privacy laws.</p>
+
+      <h3>4. Limitations of Liability</h3>
+      <p>The application is provided "as is" without warranty of any kind. We shall not be liable for any damages resulting from the use or inability to use our services.</p>
+    </div>
+
+    <a href="{{ url_for('login') }}" class="back-button">← Back to Sign In</a>
+  </div>
+
+</body>
+</html>

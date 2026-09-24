@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign In Form</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #e8f7ff 0%, #d8eef8 100%);
+      font-family: Arial, sans-serif;
+      color: #123b52;
+    }
+
+    .container {
+      max-width: 350px;
+      width: 100%;
+      background: #F8F9FD;
+      background: linear-gradient(145deg, #ffffff 0%, #f4faff 100%);
+      border-radius: 28px;
+      padding: 32px 35px;
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      box-shadow: 0 24px 55px rgba(55, 133, 167, 0.22);
+      margin: 20px;
+      box-sizing: border-box;
+    }
+
+    .heading {
+      text-align: center;
+      font-weight: 900;
+      font-size: 30px;
+      color: #1089d3;
+    }
+
+    .form {
+      margin-top: 20px;
+    }
+
+    .form .input {
+      width: 100%;
+      background: #fff;
+      color: #123b52;
+      border: 2px solid #e1f0f7;
+      padding: 15px 20px;
+      border-radius: 20px;
+      margin-top: 15px;
+      box-shadow: 0 8px 18px rgba(133, 189, 215, 0.12);
+      box-sizing: border-box;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .form .input::-moz-placeholder {
+      color: rgb(170, 170, 170);
+    }
+
+    .form .input::placeholder {
+      color: rgb(170, 170, 170);
+    }
+
+    .form .input:focus {
+      outline: none;
+      border-color: #12b1d1;
+      box-shadow: 0 8px 18px rgba(18, 177, 209, 0.16);
+    }
+
+    .form .forgot-password {
+      display: block;
+      margin-top: 10px;
+      margin-left: 10px;
+    }
+
+    .form .forgot-password a {
+      font-size: 11px;
+      color: #0099ff;
+      text-decoration: none;
+    }
+
+    .form .login-button {
+      display: block;
+      width: 100%;
+      font-weight: bold;
+      background: #fff;
+      color: #0099ff;
+      padding-block: 15px;
+      margin: 20px auto;
+      border-radius: 20px;
+      border: 2px solid #12b1d1;
+      box-shadow: 0 8px 18px rgba(133, 189, 215, 0.16);
+      transition: all 0.2s ease-in-out;
+      cursor: pointer;
+      font-size: 15px;
+    }
+
+    .form .login-button:hover {
+      transform: scale(1.03);
+      background: linear-gradient(45deg, #1089d3 0%, #12b1d1 100%);
+      color: #fff;
+      box-shadow: 0 12px 24px rgba(18, 177, 209, 0.28);
+    }
+
+    .form .login-button:active {
+      transform: scale(0.95);
+      box-shadow: 0 5px 12px rgba(18, 177, 209, 0.2);
+    }
+
+    .registration-button {
+      display: block;
+      width: 100%;
+      box-sizing: border-box;
+      text-align: center;
+      font-weight: bold;
+      color: #0099ff;
+      padding-block: 15px;
+      margin: 10px auto;
+      border: 2px solid #12B1D1;
+      border-radius: 20px;
+      text-decoration: none;
+      transition: all 0.2s ease-in-out;
+    }
+
+    .registration-button:hover {
+      transform: scale(1.03);
+      background: #effbff;
+      box-shadow: 0 8px 18px rgba(18, 177, 209, 0.16);
+    }
+
+    .form .login-button:focus-visible,
+    .registration-button:focus-visible,
+    .form .forgot-password a:focus-visible,
+    .agreement a:focus-visible {
+      outline: 3px solid rgba(18, 177, 209, 0.35);
+      outline-offset: 3px;
+    }
+
+    @media (max-width: 420px) {
+      .container {
+        padding: 28px 22px;
+        margin: 14px;
+      }
+    }
+
+    .agreement {
+      display: block;
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .agreement a {
+      text-decoration: none;
+      color: #0099ff;
+      font-size: 9px;
+    }
+
+    .captcha {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: 18px;
+      padding: 14px;
+      background: #fafafa;
+      border: 1px solid #d9d9d9;
+      border-radius: 4px;
+      color: #333;
+      font-size: 13px;
+    }
+
+    .captcha-brand {
+      color: #777;
+      font-size: 10px;
+      text-align: center;
+      line-height: 1.3;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="heading">Sign In</div>
+    <form action="{{ url_for('login') }}" class="form" method="post" id="login-form">
+      <input required class="input" type="email" name="email" id="email" placeholder="E-mail">
+      <input required class="input" type="password" name="password" id="password" placeholder="Password">
+      <span class="forgot-password"><a href="{{ url_for('forgot') }}">Forgot Password ?</a></span>
+      <div class="captcha" aria-label="CAPTCHA verification">
+        <div class="cf-turnstile" data-sitekey="0x4AAAAAAFBcB7Fq7Eyi_Rp5"></div>
+      </div>
+      <input class="login-button" type="submit" value="Sign In">
+      <a class="registration-button" href="{{ url_for('register') }}">Registration</a>
+    </form>
+    <span class="agreement"><a href="{{ url_for('licence') }}">Learn user licence agreement</a></span>
+  </div>
+
+  <script>
+    document.getElementById('login-form').addEventListener('submit', function (event) {
+      const captchaToken = this.querySelector('[name="cf-turnstile-response"]');
+      if (!captchaToken || !captchaToken.value) {
+        event.preventDefault();
+        alert('Please complete the CAPTCHA verification.');
+      }
+    });
+  </script>
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+
+</body>
+</html>
